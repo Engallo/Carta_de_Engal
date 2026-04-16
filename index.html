@@ -7,13 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
   html, body {
     width: 100%; height: 100%;
     min-height: 100vh;
     font-family: 'Lato', sans-serif;
   }
-
+ 
   body {
     background: linear-gradient(160deg, #ffe0ec 0%, #ffc8de 40%, #ffb3d0 100%);
     display: flex;
@@ -23,7 +23,7 @@
     overflow: hidden;
     position: relative;
   }
-
+ 
   /* Floating hearts background */
   .hearts-bg {
     position: fixed;
@@ -32,20 +32,20 @@
     overflow: hidden;
     z-index: 0;
   }
-
+ 
   .hf {
     position: absolute;
     opacity: 0;
     animation: floatUp linear infinite;
   }
-
+ 
   @keyframes floatUp {
     0%   { opacity: 0; transform: translateY(0) scale(1) rotate(0deg); }
     10%  { opacity: 0.35; }
     90%  { opacity: 0.2; }
     100% { opacity: 0; transform: translateY(-110vh) scale(1.3) rotate(20deg); }
   }
-
+ 
   /* Pages */
   .page {
     position: fixed;
@@ -58,13 +58,13 @@
     padding: 24px;
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
-
+ 
   .page.hidden {
     opacity: 0;
     pointer-events: none;
     transform: translateY(30px);
   }
-
+ 
   /* PAGE 1 */
   .main-heart {
     width: 80px;
@@ -72,12 +72,12 @@
     margin-bottom: 20px;
     animation: pulse 2s ease-in-out infinite;
   }
-
+ 
   @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50%       { transform: scale(1.12); }
   }
-
+ 
   .title {
     font-family: 'Caveat', cursive;
     font-size: clamp(46px, 8vw, 64px);
@@ -86,7 +86,7 @@
     margin-bottom: 10px;
     text-align: center;
   }
-
+ 
   .subtitle {
     font-size: clamp(15px, 2.5vw, 18px);
     color: #8a3050;
@@ -95,7 +95,7 @@
     letter-spacing: 0.02em;
     text-align: center;
   }
-
+ 
   /* Envelope */
   .envelope-btn {
     cursor: pointer;
@@ -107,7 +107,7 @@
     border: none;
     padding: 0;
   }
-
+ 
   .envelope {
     width: 200px;
     height: 136px;
@@ -115,12 +115,12 @@
     transition: transform 0.25s ease, filter 0.25s ease;
     filter: drop-shadow(0 8px 24px rgba(176,40,90,0.22));
   }
-
+ 
   .envelope-btn:hover .envelope {
     transform: scale(1.07) translateY(-4px);
     filter: drop-shadow(0 16px 32px rgba(176,40,90,0.32));
   }
-
+ 
   .env-body {
     position: absolute;
     bottom: 0; left: 0;
@@ -128,7 +128,7 @@
     background: #f08aae;
     border-radius: 6px;
   }
-
+ 
   .env-fold-left {
     position: absolute;
     bottom: 0; left: 0;
@@ -137,7 +137,7 @@
     border-top: 68px solid transparent;
     border-bottom: 68px solid transparent;
   }
-
+ 
   .env-fold-right {
     position: absolute;
     bottom: 0; right: 0;
@@ -146,7 +146,7 @@
     border-top: 68px solid transparent;
     border-bottom: 68px solid transparent;
   }
-
+ 
   .env-flap {
     position: absolute;
     top: 0; left: 0;
@@ -155,7 +155,7 @@
     border-right: 100px solid transparent;
     border-top: 72px solid #d4507a;
   }
-
+ 
   .env-heart-badge {
     position: absolute;
     top: 50%; left: 50%;
@@ -167,32 +167,39 @@
     box-shadow: 0 2px 10px rgba(176,40,90,0.20);
     z-index: 2;
   }
-
+ 
   .tap-hint {
     font-size: 14px;
     color: #9a3560;
     letter-spacing: 0.04em;
   }
-
+ 
   .bounce-arrow {
     margin-top: 28px;
     font-size: 26px;
     color: #b5134f;
     animation: bounce 1.6s ease-in-out infinite;
   }
-
+ 
   @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50%       { transform: translateY(8px); }
   }
-
+ 
   /* PAGE 2 — Letter */
+  #page2 {
+    overflow-y: auto;
+    justify-content: flex-start;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+ 
   .letter-wrapper {
     width: 100%;
     max-width: 520px;
     position: relative;
   }
-
+ 
   .tape {
     position: absolute;
     top: -14px;
@@ -204,7 +211,7 @@
     border-radius: 3px;
     z-index: 2;
   }
-
+ 
   .letter-card {
     background: #fff;
     border-radius: 6px;
@@ -213,7 +220,7 @@
     position: relative;
     overflow: hidden;
   }
-
+ 
   /* Ruled lines */
   .letter-card::before {
     content: '';
@@ -230,7 +237,7 @@
     pointer-events: none;
     border-radius: 6px;
   }
-
+ 
   /* Red margin line */
   .letter-card::after {
     content: '';
@@ -241,7 +248,7 @@
     background: rgba(255,100,130,0.3);
     pointer-events: none;
   }
-
+ 
   .letter-text {
     font-family: 'Caveat', cursive;
     font-size: clamp(22px, 3.5vw, 28px);
@@ -251,15 +258,15 @@
     position: relative;
     z-index: 1;
   }
-
+ 
   .letter-text p {
     margin-bottom: 38px;
   }
-
+ 
   .letter-text p:last-of-type {
     margin-bottom: 38px;
   }
-
+ 
   .letter-footer {
     display: flex;
     align-items: center;
@@ -275,10 +282,10 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- Floating hearts -->
 <div class="hearts-bg" id="heartsBg"></div>
-
+ 
 <!-- PAGE 1 -->
 <div class="page" id="page1">
   <svg class="main-heart" viewBox="0 0 80 80">
@@ -286,7 +293,7 @@
   </svg>
   <div class="title">Hola amor...</div>
   <div class="subtitle">Tengo un mensaje muy especial para ti.</div>
-
+ 
   <button class="envelope-btn" onclick="goToLetter()">
     <div class="envelope">
       <div class="env-body"></div>
@@ -301,36 +308,41 @@
     </div>
     <span class="tap-hint">Toca para abrir ✨</span>
   </button>
-
+ 
   <div class="bounce-arrow">⌄</div>
 </div>
-
+ 
 <!-- PAGE 2 -->
 <div class="page hidden" id="page2">
   <div class="letter-wrapper">
     <div class="tape"></div>
     <div class="letter-card">
       <div class="letter-text">
-        <p>Tu sonrisa es mi luz,<br>tus ojos mi destino.</p>
-        <p>No quiero nada más,<br>que caminar contigo.</p>
-        <p>Eres mi persona favorita,<br>hoy y siempre.</p>
+        <p>Pensé que seríamos un hola y un adiós<br>cuando nos conocimos,<br>de esos que solo son breves.</p>
+        <p>Pero a medida que pasaban los días,<br>te fuiste quedando.<br>En mis mañanas, tardes, noches<br>e incluso madrugadas.</p>
+        <p>Te volviste prácticamente mi día a día<br>hasta que nos volvimos más cercanos,<br>y eso nos lleva a este día.</p>
+        <p>Por eso quiero decir lo que antes callaba:<br>"me gustas".<br>Esa vez me ganaste en decirlo,<br>como casi siempre.<br>Cuatro meses después,<br>sigo perdiendo contigo... y ganando todo.</p>
+        <p>No soy bueno con las palabras<br>pero quiero que sepas que te amo Ñem ❤️</p>
       </div>
       <div class="letter-footer">
         <svg width="24" height="24" viewBox="0 0 24 24">
           <path fill="#e8607a" d="M12 21C5.4 17 1 13 1 8.5A5.5 5.5 0 0 1 12 5.1 5.5 5.5 0 0 1 23 8.5C23 13 18.6 17 12 21z"/>
         </svg>
         Engal
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path fill="#e8607a" d="M12 21C5.4 17 1 13 1 8.5A5.5 5.5 0 0 1 12 5.1 5.5 5.5 0 0 1 23 8.5C23 13 18.6 17 12 21z"/>
+        </svg>
       </div>
     </div>
   </div>
 </div>
-
+ 
 <script>
   // Generate floating hearts
   const bg = document.getElementById('heartsBg');
   const sizes = [10, 14, 18, 22, 12, 16];
   const colors = ['#f4a0c0','#e87aaa','#f9c0d5','#d4507a','#f0b0cc'];
-
+ 
   for (let i = 0; i < 22; i++) {
     const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
     const s = sizes[Math.floor(Math.random() * sizes.length)];
@@ -347,7 +359,7 @@
     svg.innerHTML = `<path fill="${c}" d="M12 21C5.4 17 1 13 1 8.5A5.5 5.5 0 0 1 12 5.1 5.5 5.5 0 0 1 23 8.5C23 13 18.6 17 12 21z"/>`;
     bg.appendChild(svg);
   }
-
+ 
   function goToLetter() {
     document.getElementById('page1').classList.add('hidden');
     document.getElementById('page2').classList.remove('hidden');
@@ -355,3 +367,4 @@
 </script>
 </body>
 </html>
+ 
